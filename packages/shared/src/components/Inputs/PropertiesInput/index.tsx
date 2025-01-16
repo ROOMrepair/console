@@ -4,7 +4,7 @@
  */
 
 import { has, isEmpty } from 'lodash';
-import React, { ReactNode, useEffect, useMemo, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import PropertyItem, { Props as ItemProps } from './item';
 import { AddButton, Wrapper } from './styles';
 
@@ -154,7 +154,7 @@ function PropertiesInput({
       ))}
       {arrayValues.map((item, index) => (
         <PropertyItem
-          key={`array-${item.key}`}
+          key={`array-${index}-${arrayValues.length}`}
           index={index}
           value={item || {}}
           defaultValue={item || {}}
